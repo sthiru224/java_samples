@@ -1,0 +1,13 @@
+public class TestClass {
+
+    public int foo;
+    
+    public TestClass(int foo) {
+        this.foo = foo;
+    }
+    
+    public int getFoo() {
+        return foo;
+    }       
+
+}

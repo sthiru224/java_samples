@@ -1,0 +1,22 @@
+Write classes and interfaces to represent the following: 
+Adoptable Amphibian Animal Dog Frog Goldfish Mammal WaterLiveable Whale
+
+
+Animal Adoptable Amphibian  Mammal WaterLiveable 
+Dog Frog Goldfish Whale
+
+Dog		Animal	Adoptable				  Mammal WarmBlooded
+Frog		Animal	Adoptable	WaterLiveable	Amphibian	 ColdBlooded 
+Goldfish	Animal	Adoptable	WaterLiveable
+Whale		Animal			WaterLiveable		  Mammal
+
+
+
+9 files  
+
+Abstract class :  Animal 
+Interface : Adoptable Amphibian  Mammal WaterLiveable 
+Class : Dog Frog Goldfish Whale
+Main(Tester) program 
+
+

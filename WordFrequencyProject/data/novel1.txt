@@ -1,0 +1,5 @@
+After the file is done being processed the results
+will be displayed  This will include displaying the words alphabetically
+or by frequency or by length depending on the user's choice
+After the file is done being processed, the results
+or by frequency or by length depending on the user's choice

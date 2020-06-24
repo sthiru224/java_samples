@@ -1,0 +1,197 @@
+This project is optional extra credit.
+
+Note that because of when final grades are due, there are no late submissions accepted of this project. 
+
+Write classes and interfaces to represent the following: 
+Adoptable Amphibian Animal Dog Frog Goldfish Mammal WaterLiveable Whale
+
+
+Animal Adoptable Amphibian  Mammal WaterLiveable 
+Dog Frog Goldfish Whale
+
+Dog		Animal	Adoptable				  Mammal WarmBlooded
+Frog		Animal	Adoptable	WaterLiveable	Amphibian	 ColdBlooded 
+Goldfish	Animal	Adoptable	WaterLiveable
+Whale		Animal			WaterLiveable		  Mammal
+
+
+
+9 files  
+
+Abstract class :  Animal 
+Interface : adoptable Amphibian  Mammal WaterLiveable 
+Class : Dog Frog Goldfish Whale
+Main(Tester) program 
+
+
+You need to decide on the structure. Consider:
+
+Which should be an abstract class?
+	Abstract classes are classes that contain one or more abstract methods. An abstract method is a method that is declared, but contains no implementation. Abstract classes may not be instantiated, and require subclasses to provide implementations for the abstract methods.
+
+Which should be an interface?
+
+How should the classes be related through inheritance?
+
+In what classes should methods be placed?
+
+What methods should be overridden?
+
+Some additional details/requirements:
+
+All animals have a name.
+All animals have a toString method that should returns the animal's name.
+All animals have a method "isWarmBlooded" that returns a boolean.
+
+Animals that can be adopted as pets have a method "getHomecareInstructions" that return a description of how to care for the animal.
+Animals that can live in water have a method "canLiveOnLand" that returns a boolean of whether the animal can also live on land.
+
+This assignment isn't necessarily difficult from a programming perspective. What you should spend time on  is carefully considering the design of you classes and how they should be related through inheritance or interfaces. To get full credit:
+
+Your class hierarchy should make sense. (You can assume common knowledge or "googleable" facts about animals- you won't be graded on your biology knowledge!)
+Place common code as high up in the hierarchy as possible. Avoid repeating code.
+Declare classes that should not be instantiated as abstract.
+In abstract classes, methods that must be implemented by all subclasses should be declared abstract.
+Remember that classes can only have one parent but can implement multiple interfaces.
+To submit your program, zip your 9 files together and upload the zip file. If submitting as a group, submit one assignment only through one group member's Insight account. Put the names of all group members in Java comments at the top of each Java file.
+
+
+----------------
+public class AnimalKingdomTester {
+
+
+   public static void main(String[] args) {
+
+       Animal[] animals = new Animal[5];
+       animals[0] = new Dog("Rover");
+       animals[1] = new Whale("Beluga");
+       animals[2] = new Bat("Dracky", 15);
+       animals[3] = new Goldfish("Nemo");
+       animals[4] = new Frog("Prince");
+      
+       for(Animal a : animals) {
+           System.out.println(a + " is a " + a.getClass().getSimpleName() + " which " +
+                   (a.isWarmBlooded() ? "is" : "is not" ) + " warm blooded.");
+          
+           if(a instanceof Adoptable)
+               System.out.println("\t" + ( (Adoptable) a).getHomeCareInstructions());
+          
+           if(a instanceof Flyable)
+               System.out.println("\tFlies up to " + ( (Flyable) a).getFlightSpeed() + " mph!");
+          
+           if(a instanceof WaterLiveable)
+               System.out.println("\t"+a.getName()+" can live in the water " +
+                       (( (WaterLiveable) a).canLiveOnLand() ? " and can also" : "but cannot" ) + " live on land.");
+       }
+      
+
+   }
+
+}
+
+public class AnimalKingdomTester {
+
+
+        public static void main(String[] args) {
+
+                Animal[] animals = new Animal[5];
+                animals[0] = new Dog("Rover");
+                animals[1] = new Whale("Beluga");
+                animals[2] = new Bat("Dracky", 15);
+                animals[3] = new Goldfish("Nemo");
+                animals[4] = new Frog("Prince");
+                
+                for(Animal a : animals) {
+                        System.out.println(a + " is a " + a.getClass().getSimpleName() + " which " +
+                                        (a.isWarmBlooded() ? "is" : "is not" ) + " warm blooded.");
+                        
+                        if(a instanceof Adoptable)
+                                System.out.println("\t" + ( (Adoptable) a).getHomeCareInstructions());
+                        
+                        if(a instanceof Flyable)
+                                System.out.println("\tFlies up to " + ( (Flyable) a).getFlightSpeed() + " mph!");
+                        
+                        if(a instanceof WaterLiveable) 
+                                System.out.println("\t"+a.getName()+" can live in the water " +
+                                                (( (WaterLiveable) a).canLiveOnLand() ? " and can also" : "but cannot" ) +
+                                                " live on land.");
+                }
+                
+
+        }
+
+}
+
+public abstract class Animal {
+	
+ 
+	private int age;
+
+	
+public int getAge(){return age; }
+	
+	
+	
+public abstract void makeNoise();
+ 
+	
+	
+	
+	
+	
+}
+
+All animals have a name.
+All animals have a toString method that should returns the animal's name.
+All animals have a method "isWarmBlooded" that returns a boolean.
+------------------------
+public abstract Animal
+{
+   public void eat(Food food)
+   {
+        // do something with food.... 
+   }
+
+   public void sleep(int hours)
+   {
+        try
+	{
+		// 1000 milliseconds * 60 seconds * 60 minutes * hours
+		Thread.sleep ( 1000 * 60 * 60 * hours);
+	}
+	catch (InterruptedException ie) { /* ignore */ } 
+   }
+
+   public abstract void makeNoise();
+}
+------------------------------
+public Dog extends Animal
+{
+   public void makeNoise() { System.out.println ("Bark! Bark!"); }
+}
+
+public Cow extends Animal
+{
+   public void makeNoise() { System.out.println ("Moo! Moo!"); }
+}
+------------------------------------
+abstract class Animal{
+    public int noOfLegs;
+    public boolean isAlive;
+    Animal(){
+        isAlive = true;
+    }
+    public abstract void walk();
+}
+class Cow extends Animal{
+    Cow(){
+        noOfLegs = 4;
+    }
+    public void walk(){
+        if(isAlive){
+            //Code for walking   
+        }
+    }
+}
+--------------------------------------
+DRM full test, work flows not loading in Mac and Windows 1.4.27.844, 22.0.r0.209
